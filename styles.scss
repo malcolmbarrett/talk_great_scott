@@ -1,0 +1,518 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Karla:ital,wght@0,200..800;1,200..800&family=Fira+Code:wght@400;500&display=swap');
+
+// Typography
+$presentation-heading-font: "Cedarville Cursive", cursive;
+$font-family-sans-serif: "Karla", sans-serif;
+$font-family-monospace: "Fira Code", monospace;
+
+// Sizing
+$presentation-font-size-root: 38px;
+$presentation-h1-font-size: 2.4em;
+$presentation-h2-font-size: 1.5em;
+$presentation-h3-font-size: 1.15em;
+$code-block-font-size: 0.7em;
+$presentation-line-height: 1.6;
+
+// Colors — bright white base
+$body-bg: #ffffff;
+$body-color: #2c2c2c;
+$presentation-heading-color: #1a1a1a;
+$link-color: #a0522d;
+$code-color: #8b5e3c;
+
+// Palette
+$white: #ffffff;
+$off-white: #faf9f7;
+$ink: #1a1a1a;
+$text: #2c2c2c;
+$text-light: #6b6b6b;
+$rule-color: #e0dbd4;
+
+// Act accent colors — a chromatic journey through the story
+$act-i-color: #b8860b;       // dark goldenrod — unstable, regal
+$act-ii-color: #c05626;      // burnt sienna — diagonal tension
+$act-iii-color: #b5451b;     // deep orange-red — Lemon Lucifer's fire
+$act-iv-color: #2e6b62;      // dark teal — the handbook's calm authority
+$act-epilogue-color: #5b5ea6; // muted indigo — Cassini's farewell
+
+/*-- scss:rules --*/
+
+// ═══════════════════════════════════════════
+//  BASE
+// ═══════════════════════════════════════════
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slide-number {
+  font-family: $font-family-monospace;
+  font-size: 0.4em;
+  color: rgba($text-light, 0.4);
+  right: 24px;
+  bottom: 16px;
+}
+
+.reveal h1 {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.reveal h2 {
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.25;
+  margin-bottom: 0.7em;
+}
+
+.reveal h3 {
+  font-weight: 400;
+  color: $text-light;
+  font-family: $font-family-sans-serif;
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Inline code
+.reveal code {
+  background: $off-white;
+  border: 1px solid $rule-color;
+  border-radius: 3px;
+  padding: 0.08em 0.3em;
+  font-size: 0.85em;
+  color: $code-color;
+}
+
+// Code blocks
+.reveal pre {
+  background: $off-white;
+  border: 1px solid $rule-color;
+  border-left: 3px solid $rule-color;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+// Links
+.reveal a {
+  text-decoration: none;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+}
+
+// Center code cell output images
+.reveal .slide img.r-stretch,
+.reveal .slide img.stretch {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .cell-output-display {
+  text-align: center;
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Blockquotes
+.reveal blockquote {
+  background: transparent;
+  border-left: 2px solid $rule-color;
+  padding: 0.4em 1.2em;
+  font-style: italic;
+  font-family: $presentation-heading-font;
+  font-size: 1.1em;
+  color: $text-light;
+  margin: 1.2em 0;
+}
+
+// Lists
+.reveal ul {
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+.reveal ul li::before {
+  content: "\2014";
+  color: $rule-color;
+  display: inline-block;
+  width: 1.4em;
+  margin-left: -1.4em;
+}
+
+.reveal li {
+  margin-bottom: 0.5em;
+}
+
+// Horizontal rules
+.reveal hr {
+  border: none;
+  height: 1px;
+  background: $rule-color;
+  margin: 2em auto;
+  width: 40%;
+}
+
+// Progress bar
+.reveal .progress {
+  height: 2px;
+  color: $act-i-color;
+}
+
+// ═══════════════════════════════════════════
+//  TITLE SLIDE  (Quarto class: .quarto-title-block)
+// ═══════════════════════════════════════════
+
+.quarto-title-block {
+  text-align: left;
+  padding-left: 5%;
+
+  h1.title {
+    font-size: 2.8em;
+    font-weight: 400;
+    color: $ink;
+    line-height: 1.05;
+    max-width: 80%;
+    margin-bottom: 0.15em;
+  }
+
+  .subtitle {
+    font-family: $font-family-sans-serif;
+    font-size: 0.55em;
+    color: $text-light;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.3em;
+    padding-top: 0.8em;
+    border-top: 1px solid $rule-color;
+    display: inline-block;
+  }
+
+  .quarto-title-authors {
+    display: none;
+  }
+
+  .author {
+    font-family: $presentation-heading-font;
+    font-size: 0.75em;
+    color: $text-light;
+    font-style: italic;
+    margin-top: 3em;
+  }
+
+  .date {
+    font-family: $font-family-monospace;
+    font-size: 0.45em;
+    color: rgba($text-light, 0.5);
+    margin-top: 0.3em;
+  }
+}
+
+// Decorative gradient stripe on title slide
+.quarto-title-block:is(.slide-background)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    $act-i-color 0%,
+    $act-ii-color 25%,
+    $act-iii-color 50%,
+    $act-iv-color 75%,
+    $act-epilogue-color 100%
+  );
+}
+
+// ═══════════════════════════════════════════
+//  SECTION / ACT SLIDES
+// ═══════════════════════════════════════════
+
+// Shared section behavior
+// ::after = left accent bar
+// ::before = part label text (set per act class)
+@mixin section-slide($accent) {
+  background: $white !important;
+  text-align: center;
+
+  // Left accent bar — on the background element (full viewport edge)
+  &:is(.slide-background)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: $accent;
+  }
+
+  // Part label — only on real slide
+  &:not(.slide-background)::before {
+    font-family: $font-family-sans-serif;
+    font-size: 0.7em;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $accent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -7.5em);
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 2.2em;
+    color: $ink;
+    border: none;
+    padding: 0.15em 0.6em;
+    margin: 0;
+    line-height: 1.15;
+    position: relative;
+    display: inline-block;
+
+    // Sketchy oval — two slightly misaligned strokes
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -5%;
+      width: 110%;
+      height: 145%;
+      border: 1.8px solid rgba($accent, 0.5);
+      border-radius: 53% 47% 45% 55% / 55% 42% 58% 45%;
+      transform: rotate(-0.8deg);
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -15%;
+      left: -3%;
+      width: 106%;
+      height: 135%;
+      border: 1.2px solid rgba($accent, 0.3);
+      border-radius: 47% 53% 55% 45% / 45% 58% 42% 55%;
+      transform: rotate(0.6deg);
+      pointer-events: none;
+    }
+  }
+}
+
+// Each act: include shared styles + set the part label text
+.act-i {
+  @include section-slide($act-i-color);
+  &:not(.slide-background)::before { content: "Part I"; }
+}
+
+.act-ii {
+  @include section-slide($act-ii-color);
+  &:not(.slide-background)::before { content: "Part II"; }
+}
+
+.act-iii {
+  @include section-slide($act-iii-color);
+  &:not(.slide-background)::before { content: "Part III"; }
+}
+
+.act-iv {
+  @include section-slide($act-iv-color);
+  &:not(.slide-background)::before { content: "Part IV"; }
+}
+
+.act-epilogue {
+  @include section-slide($act-epilogue-color);
+  &:not(.slide-background)::before { content: "Epilogue"; }
+
+  h1 {
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+// ═══════════════════════════════════════════
+//  CONTENT SLIDES (regular slides with accent bar)
+//  Usage: ## My Slide Title {.part-i}
+// ═══════════════════════════════════════════
+
+@mixin content-slide($accent) {
+  // Accent sidebar on background element
+  &:is(.slide-background)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: $accent;
+  }
+
+  // Tint the h2 border to match the section
+  h2 {
+    border-bottom-color: rgba($accent, 0.25);
+  }
+}
+
+.part-i { @include content-slide($act-i-color); }
+.part-ii { @include content-slide($act-ii-color); }
+.part-iii { @include content-slide($act-iii-color); }
+.part-iv { @include content-slide($act-iv-color); }
+.part-epilogue { @include content-slide($act-epilogue-color); }
+
+.part-gradient {
+  &:is(.slide-background)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      $act-i-color 0%,
+      $act-ii-color 25%,
+      $act-iii-color 50%,
+      $act-iv-color 75%,
+      $act-epilogue-color 100%
+    );
+  }
+}
+
+// ═══════════════════════════════════════════
+//  UTILITY CLASSES
+// ═══════════════════════════════════════════
+
+// Frosted callout card
+.callout-box {
+  background: $off-white;
+  border: 1px solid $rule-color;
+  border-radius: 3px;
+  padding: 0.8em 1.2em;
+  margin: 1em 0;
+}
+
+// De-emphasized text
+.aside-text {
+  font-size: 0.65em;
+  color: rgba($text-light, 0.6);
+  font-style: italic;
+}
+
+// Large centered statement slide
+.dramatic {
+  text-align: center;
+
+  h2 {
+    border: none;
+    font-family: $presentation-heading-font;
+    font-size: 1.8em;
+    font-weight: 400;
+    font-style: italic;
+    color: $text;
+  }
+}
+
+// Cursive numbered list
+// Usage: ## {.cursive-list} then a standard ordered list
+.cursive-list {
+  ol {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: cursive-counter;
+
+    li {
+      counter-increment: cursive-counter;
+      font-family: $presentation-heading-font;
+      font-size: 1.3em;
+      color: $ink;
+      margin-bottom: 0.6em;
+      padding-left: 0;
+
+      &::before {
+        content: counter(cursive-counter) ". ";
+        color: $text-light;
+      }
+
+      &::marker {
+        content: none;
+      }
+    }
+  }
+}
+
+// Fragment animation
+.reveal .fragment.fade-in {
+  transition: all 0.5s ease;
+}
+
+// ═══════════════════════════════════════════
+//  FRAGMENTS
+// ═══════════════════════════════════════════
+
+$steel-blue: #4682B4;
+
+// Highlight-last: dims previous items, highlights current in steel blue
+// Usage: ::: {.incremental .highlight-last}
+.highlight-last {
+  color: #e5e5e5;
+
+  code {
+    color: inherit;
+    background: transparent;
+    border-color: transparent;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .current-fragment {
+    color: $steel-blue;
+
+    code {
+      color: $steel-blue;
+      background: $off-white;
+      border-color: $rule-color;
+    }
+
+    a {
+      color: $link-color;
+    }
+  }
+}
+
+// Background highlight fragment in steel blue
+// Usage: [text]{.fragment .hl-blue}
+.reveal .slides section .fragment.hl-blue {
+  opacity: unset;
+  visibility: unset;
+
+  &.visible {
+    background-color: lighten($steel-blue, 30%);
+  }
+
+  &.current-fragment {
+    background-color: lighten($steel-blue, 25%);
+  }
+}
