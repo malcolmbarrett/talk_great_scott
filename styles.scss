@@ -181,15 +181,13 @@ $act-epilogue-color: #5b5ea6; // muted indigo — Cassini's farewell
 // ═══════════════════════════════════════════
 
 .quarto-title-block {
-  text-align: left;
-  padding-left: 5%;
+  text-align: center;
 
   h1.title {
     font-size: 2.8em;
     font-weight: 400;
     color: $ink;
     line-height: 1.05;
-    max-width: 80%;
     margin-bottom: 0.15em;
   }
 
